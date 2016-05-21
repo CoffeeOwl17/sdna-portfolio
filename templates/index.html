@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block add_static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% include "include_jquery.html" %}
+{% endblock add_static %}
+
+
+{% block content %}
+<div id="home-background"></div>
+<div id="left-block">
+	<div id="triangle"></div>
+</div>
+<div id="logo"><img style="display:none" src="{% static 'img/Spirit-DNA.png' %}" /></div>
+<div id="quote-block">
+	<p>The five S's of sports training are: Stamina, Speed, Strength, Skill and Spirit;</p>
+	<p>but <span id="highlight">the greatest of these is Spirit</span></p>
+	<p id="author"> - Ken Doherty</p>
+</div>
+
+
+<script>
+
+$(document).ready(function(){
+	// alert('s');
+    $("#logo>img").load(function(){
+        $(this).fadeIn(3000);
+    });
+
+    $('#quote-block>p').animate({
+    	opacity: 'toggle'
+    }, 5000);
+});
+
+</script>
+{% endblock content %}
